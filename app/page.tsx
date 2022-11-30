@@ -1,7 +1,13 @@
 import Image from 'next/image';
 import styles from './page.module.css';
 
-export default function Home({ formattedDate }: { formattedDate: string }) {
+export default function Home() {
+	const buildDate = Date.now();
+	const formattedDate = new Intl.DateTimeFormat('en-AU', {
+		dateStyle: 'long',
+		timeStyle: 'long',
+	}).format(buildDate);
+
 	return (
 		<div className={styles.container}>
 			<main className={styles.main}>
@@ -58,14 +64,4 @@ export default function Home({ formattedDate }: { formattedDate: string }) {
 			</footer>
 		</div>
 	);
-}
-
-export async function getStaticProps() {
-	const buildDate = Date.now();
-	const formattedDate = new Intl.DateTimeFormat('en-AU', {
-		dateStyle: 'long',
-		timeStyle: 'long',
-	}).format(buildDate);
-
-	return { props: { formattedDate } };
 }
