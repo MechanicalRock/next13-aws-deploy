@@ -21,7 +21,8 @@ export default async function SSR() {
 		<>
 			<h1>Server-side rendered page</h1>
 			<p>
-				This page is server-side rendered. It was rendered on {formattedDate}.
+				This page is server-side rendered (no-cache). It was rendered on{' '}
+				{formattedDate}.
 			</p>
 			<p>
 				<a href="/">View a static page.</a>
