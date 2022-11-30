@@ -1,5 +1,7 @@
 async function getFormattedDate() {
-	const result = await fetch('http://date.jsontest.com/');
+	const result = await fetch('http://date.jsontest.com/', {
+		cache: 'no-store',
+	});
 	const { milliseconds_since_epoch } = await result.json();
 	const renderDate = new Date(milliseconds_since_epoch);
 	const formattedDate = new Intl.DateTimeFormat('en-US', {
